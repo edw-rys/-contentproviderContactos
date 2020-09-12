@@ -11,33 +11,30 @@ import com.example.providerexample.database.DatabaseHandler;
 import com.example.providerexample.database.Contacto;
 
 /**
- * A fragment representing a single Person detail screen.
- * This fragment is either contained in a {@link PersonListActivity}
- * in two-pane mode (on tablets) or a {@link PersonDetailActivity}
- * on handsets.
+ *
+ * Un fragmento que representa la pantalla de detalles de una sola persona.
  */
 public class PersonDetailFragment extends Fragment {
     /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
+     * El argumento del fragmento que representa el ID de elemento que representa este fragmento.
      */
     public static final String ARG_ITEM_ID = "item_id";
 
     /**
-     * The person this fragment is presenting.
+     * La persona que presenta este fragmento.
      */
     private Contacto mItem;
     
     /**
-     * The UI elements showing the details of the Person
+     * Los elementos de la interfaz de usuario que muestran los detalles de la persona
      */
     private TextView textFirstName;
     private TextView textLastName;
     private TextView textBio;
 
     /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
+     * Constructor vacío obligatorio para que el administrador de fragmentos
+     * cree una instancia del fragmento (por ejemplo, al cambiar la orientación de la pantalla).
      */
     public PersonDetailFragment() {
     }
@@ -47,7 +44,7 @@ public class PersonDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-        	// Should use the contentprovider here ideally
+        	// Se usa el proveedor de contenidos
             mItem = DatabaseHandler.getInstance(getActivity()).obtenerPersona(getArguments().getLong(ARG_ITEM_ID));
         }
     }
@@ -55,9 +52,11 @@ public class PersonDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        // SE MUESTRA LA VISTA CON EL CONTACTO
         View rootView = inflater.inflate(R.layout.fragment_person_detail, container, false);
 
         if (mItem != null) {
+            // Se setean los datos
             textFirstName = ((TextView) rootView.findViewById(R.id.textFirstName));
             textFirstName.setText(mItem.firstname);
             
@@ -76,6 +75,7 @@ public class PersonDetailFragment extends Fragment {
     }
     
     private void actualizarPersona() {
+        // ACUALIZAR CONTACTO
     	if (mItem != null) {
     		mItem.firstname = textFirstName.getText().toString();
     		mItem.email = textLastName.getText().toString();
