@@ -17,48 +17,42 @@ import com.example.providerexample.database.Contacto;
 import com.example.providerexample.database.PersonProvider;
 
 /**
- * A list fragment representing a list of Persons. This fragment also supports
- * tablet devices by allowing list items to be given an 'activated' state upon
- * selection. This helps indicate which item is currently being viewed in a
- * {@link PersonDetailFragment}.
- * <p>
- * Activities containing this fragment MUST implement the {@link Callbacks}
- * interface.
+ *
+ * Un fragmento de lista que representa una lista de personas.
  */
 public class PersonListFragment extends ListFragment {
 
 	/**
-	 * The serialization (saved instance state) Bundle key representing the
-	 * activated item position. Only used on tablets.
+	 * La clave de lote de serialización (estado de instancia guardada) que representa la posición del artículo activado. Solo se usa en tabletas.
 	 */
 	private static final String STATE_ACTIVATED_POSITION = "activated_position";
 
 	/**
-	 * The fragment's current callback object, which is notified of list item
-	 * clicks.
+	 * El objeto de devolución de llamada actual del fragmento, al que se le notifica de los clics en los elementos de la lista.
 	 */
 	private Callbacks mCallbacks = sDummyCallbacks;
 
 	/**
-	 * The current activated item position. Only used on tablets.
+	 * La posición actual del artículo activado. Solo se usa en tabletas.
 	 */
 	private int mActivatedPosition = ListView.INVALID_POSITION;
 
 	/**
-	 * A callback interface that all activities containing this fragment must
-	 * implement. This mechanism allows activities to be notified of item
-	 * selections.
+	 *
+	 * Una interfaz de devolución de llamada que deben implementar todas las actividades que contienen este fragmento.
+	 * Este mecanismo permite que las actividades sean notificadas sobre la selección de elementos.
 	 */
 	public interface Callbacks {
 		/**
-		 * Callback for when an item has been selected.
+		 * Devolución de llamada para cuando se ha seleccionado un elemento.
 		 */
 		public void onItemSelected(long l);
 	}
 
 	/**
-	 * A dummy implementation of the {@link Callbacks} interface that does
-	 * nothing. Used only when this fragment is not attached to an activity.
+	 *
+	 * Una implementación ficticia de la interfaz {@link Callbacks} que no hace nada
+	 * Se usa solo cuando este fragmento no está adjunto a una actividad.
 	 */
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
@@ -66,10 +60,6 @@ public class PersonListFragment extends ListFragment {
 		}
 	};
 
-	/**
-	 * Mandatory empty constructor for the fragment manager to instantiate the
-	 * fragment (e.g. upon screen orientation changes).
-	 */
 	public PersonListFragment() {
 	}
 
@@ -82,7 +72,7 @@ public class PersonListFragment extends ListFragment {
 						Contacto.COL_FIRSTNAME, Contacto.COL_EMAIL }, new int[] { R.id.cardFirstName,
 						R.id.cardLastName }, 0));
 
-		// Load the content
+		// Cargar el contenido
 		getLoaderManager().initLoader(0, null, new LoaderCallbacks<Cursor>() {
 			@Override
 			public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -113,7 +103,7 @@ public class PersonListFragment extends ListFragment {
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		// Restore the previously serialized activated item position.
+		// Restaurar la posición del artículo activado previamente serializado.
 		if (savedInstanceState != null
 				&& savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
 			setActivatedPosition(savedInstanceState
@@ -125,7 +115,7 @@ public class PersonListFragment extends ListFragment {
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 
-		// Activities containing this fragment must implement its callbacks.
+		// Las actividades que contienen este fragmento deben implementar sus devoluciones de llamada.
 		if (!(activity instanceof Callbacks)) {
 			throw new IllegalStateException(
 					"Activity must implement fragment's callbacks.");
@@ -138,7 +128,7 @@ public class PersonListFragment extends ListFragment {
 	public void onDetach() {
 		super.onDetach();
 
-		// Reset the active callbacks interface to the dummy implementation.
+		// REstablezca la interfaz de devoluciones de llamada activa a la implementación ficticia.
 		mCallbacks = sDummyCallbacks;
 	}
 
@@ -147,8 +137,7 @@ public class PersonListFragment extends ListFragment {
 			long id) {
 		super.onListItemClick(listView, view, position, id);
 
-		// Notify the active callbacks interface (the activity, if the
-		// fragment is attached to one) that an item has been selected.
+		// Notifique a la interfaz de devoluciones de llamada activa (la actividad, si el fragmento se adjunta a uno) que se ha seleccionado un elemento.
 		mCallbacks.onItemSelected(getListAdapter().getItemId(position));
 	}
 
@@ -162,12 +151,11 @@ public class PersonListFragment extends ListFragment {
 	}
 
 	/**
-	 * Turns on activate-on-click mode. When this mode is on, list items will be
-	 * given the 'activated' state when touched.
+	 * Activa el modo de activación al hacer clic. Cuando este modo está activado,
+	 * los elementos de la lista recibirán el estado "activado" cuando se toquen.
 	 */
 	public void setActivateOnItemClick(boolean activateOnItemClick) {
-		// When setting CHOICE_MODE_SINGLE, ListView will automatically
-		// give items the 'activated' state when touched.
+		// Al configurar CHOICE_MODE_SINGLE, ListView automáticamente le dará a los elementos el estado 'activado' cuando se toquen.
 		getListView().setChoiceMode(
 				activateOnItemClick ? ListView.CHOICE_MODE_SINGLE
 						: ListView.CHOICE_MODE_NONE);
