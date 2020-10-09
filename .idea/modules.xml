@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-contentproviderContactos.iml" filepath="$PROJECT_DIR$/.idea/modules/-contentproviderContactos.iml" group="-contentproviderContactos" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/-contentproviderContactos-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/-contentproviderContactos-app.iml" group="-contentproviderContactos/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ContentProviderContactos.iml" filepath="$PROJECT_DIR$/.idea/modules/ContentProviderContactos.iml" group="ContentProviderContactos" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="ContentProviderContactos/app" />
     </modules>

@@ -1,6 +1,7 @@
 package com.example.providerexample;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
