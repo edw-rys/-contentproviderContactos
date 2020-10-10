@@ -3,5 +3,9 @@
 
     <string name="app_name">Notas</string>
     <string name="title_person_detail">Detalle de la persona</string>
-
+    <string-array name="fontsize">
+        <item>PEQUEÑO</item>
+        <item>MEDIANO</item>
+        <item>GRANDE</item>
+    </string-array>
 </resources>

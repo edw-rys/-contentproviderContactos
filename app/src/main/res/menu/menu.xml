@@ -6,4 +6,7 @@
     <item
         android:id="@+id/op_m_2"
         android:title="Ayuda" />
+    <item
+        android:id="@+id/op_m_3"
+        android:title="Config" />
 </menu>

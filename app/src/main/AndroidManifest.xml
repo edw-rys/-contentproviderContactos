@@ -36,6 +36,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PersonListActivity" />
         </activity>
+        <activity
+            android:name="com.example.providerexample.ConfigActivity"
+            android:label="Configuraciones"
+            android:parentActivityName=".PersonListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PersonListActivity" />
+        </activity>
 
         <provider
             android:name="com.example.providerexample.database.PersonProvider"

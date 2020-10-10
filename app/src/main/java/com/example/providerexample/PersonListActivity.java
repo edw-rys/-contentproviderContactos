@@ -89,6 +89,12 @@ public class PersonListActivity extends FragmentActivity implements
 
 			startActivity(helpIntent);
 		}
+
+		if( i == R.id.op_m_3){
+			Intent helpIntent = new Intent(this, ConfigActivity.class);
+
+			startActivity(helpIntent);
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
